@@ -23,7 +23,10 @@
         httpRequest.send();
     }
 
-    var json = fetchJSONFile("data.json")
+
+    fetchJSONFile("data.json", console.log)
+
+    var json = fetchJSONFile("./data.json")
     console.log(json);
 
     var labels = json.data.map(function(e) {
