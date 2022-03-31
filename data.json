@@ -1,0 +1,24 @@
+{
+    "data": [
+    {
+        "name": "Africa",
+        "population": 2478
+    },
+    {
+        "name": "Asia",
+        "population": 5267
+    },
+    {
+        "name": "Europe",
+        "population": 734
+    },
+    {
+        "name": "Latin America",
+        "population": 784
+    },
+    {
+        "name": "North America",
+        "population": 433
+    }
+    ]
+}
