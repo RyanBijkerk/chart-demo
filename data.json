@@ -1,24 +1,17 @@
 {
+    "title": "Session Frames per Second (FPS) avg.",
     "data": [
     {
-        "name": "Ryan",
-        "posts": 35
+        "name": "NVIDIA 1Q",
+        "posts": 8.1
     },
     {
-        "name": "Eltjo",
-        "posts": 28
+        "name": "NVIDIA 2Q",
+        "posts": 8.3
     },
     {
-        "name": "Tom",
-        "posts": 5
-    },
-    {
-        "name": "Sven",
-        "posts": 10
-    },
-    {
-        "name": "Bas",
-        "posts": 1
+        "name": "NVIDIA 4Q",
+        "posts": 7.9
     }
     ]
 }

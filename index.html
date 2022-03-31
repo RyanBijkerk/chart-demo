@@ -26,6 +26,9 @@
     function createChart(json) {
         console.log("function...");
         console.log(json);
+        
+        var title = json.title
+
         var labels = json.data.map(function(e) {
         return e.name;
         });
@@ -41,7 +44,7 @@
             labels: labels,
             datasets: [
                 {
-                label: "GO-EUC Posts",
+                label: title,
                 backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
                 data: data
                 }
@@ -51,7 +54,7 @@
             legend: { display: false },
             title: {
                 display: true,
-                text: 'GO-EUC Posts'
+                text: title
             }
             }
         });
