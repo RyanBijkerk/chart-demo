@@ -11,11 +11,11 @@
         return json
     });
 
-    var labels = json.map(function(e) {
+    var labels = json.data.map(function(e) {
         return e.name;
     });
 
-    var data = json.map(function(e) {
+    var data = json.data.map(function(e) {
         return e.population;
     });
 
