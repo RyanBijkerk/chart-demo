@@ -2,12 +2,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://requirejs.org/docs/release/2.3.6/minified/require.js"></script>
-
+<script src="https://raw.githubusercontent.com/AlbinoDrought/chartjs-plugin-watermark/master/chartjs-plugin-watermark.min.js"></script>
 
 <h1>Hello Demo...</h1>
 <canvas id="bar-chart" width="800" height="450"></canvas>
 
 <script>
+
 
     function fetchJSONFile(path, callback) {
         var httpRequest = new XMLHttpRequest();
@@ -50,6 +51,41 @@
                 }
             ]
             },
+            watermark: {
+                // the image you would like to show
+                // alternatively, this can be of type "Image"
+                image: "https://www.go-euc.com/assets/images/logo-white.png",
+                
+                // x and y offsets of the image
+                x: 50,
+                y: 50,
+                
+                // width and height to resize the image to
+                // image is not resized if these values are not set
+                width: 108,
+                height: 39,
+                
+                // opacity of the image, from 0 to 1 (default: 1)
+                opacity: 0.1,
+                
+                // x-alignment of the image (default: "left")
+                // valid values: "left", "middle", "right"
+                alignX: "right",
+                // y-alignment of the image (default: "top")
+                // valid values: "top", "middle", "bottom"
+                alignY: "bottom",
+                
+                // if true, aligns the watermark to the inside of the chart area (where the lines are)
+                // (where the lines are)
+                // if false, aligns the watermark to the inside of the canvas
+                // see samples/alignToChartArea.html
+                alignToChartArea: false,
+                
+                // determines whether the watermark is drawn on top of or behind the chart
+                // valid values: "front", "back"
+                position: "back",
+            },
+            
             options: {
             legend: { display: false },
             title: {
