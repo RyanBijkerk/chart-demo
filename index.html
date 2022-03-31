@@ -9,13 +9,13 @@
 
 <script>
 
-    function fetchJSONFile(path, callback) {
+    function fetchJSONFile(path) {
         var httpRequest = new XMLHttpRequest();
         httpRequest.onreadystatechange = function() {
             if (httpRequest.readyState === 4) {
                 if (httpRequest.status === 200) {
                     var data = JSON.parse(httpRequest.responseText);
-                    if (callback) callback(data);
+                    return data
                 }
             }
         };
@@ -24,9 +24,8 @@
     }
 
 
-    fetchJSONFile("data.json", console.log)
+    var json = fetchJSONFile("data.json")
 
-    var json = fetchJSONFile("./data.json")
     console.log(json);
 
     var labels = json.data.map(function(e) {
