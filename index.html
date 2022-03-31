@@ -7,13 +7,7 @@
 
 <script>
 
-    const json = $.getJSON("data.json", function(json) {
-        console.log(json)
-        return json
-    });
-
-    console.log(json)
-
+    const jsonData = require('./data.json'); 
     var labels = json.data.map(function(e) {
         return e.name;
     });
