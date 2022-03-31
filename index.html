@@ -9,13 +9,13 @@
 
 <script>
 
-    function fetchJSONFile(path) {
+    function fetchJSONFile(path, callback) {
         var httpRequest = new XMLHttpRequest();
         httpRequest.onreadystatechange = function() {
             if (httpRequest.readyState === 4) {
                 if (httpRequest.status === 200) {
                     var data = JSON.parse(httpRequest.responseText);
-                    return data
+                    if (callback) callback(data);
                 }
             }
         };
@@ -23,38 +23,40 @@
         httpRequest.send();
     }
 
-
-    var json = fetchJSONFile("data.json")
-
-    console.log(json);
-
-    var labels = json.data.map(function(e) {
+    function createChart(json) {
+        console.log("function...");
+        console.log(json);
+        var labels = json.data.map(function(e) {
         return e.name;
-    });
+        });
 
-    var data = json.data.map(function(e) {
-        return e.population;
-    });
+        var data = json.data.map(function(e) {
+            return e.population;
+        });
 
 
-    new Chart(document.getElementById("bar-chart"), {
-        type: 'bar',
-        data: {
-        labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
-        datasets: [
-            {
-            label: "Population (millions)",
-            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-            data: [2478,5267,734,784,433]
+        new Chart(document.getElementById("bar-chart"), {
+            type: 'bar',
+            data: {
+            labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+            datasets: [
+                {
+                label: "Population (millions)",
+                backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                data: [2478,5267,734,784,433]
+                }
+            ]
+            },
+            options: {
+            legend: { display: false },
+            title: {
+                display: true,
+                text: 'Predicted world population (millions) in 2050'
             }
-        ]
-        },
-        options: {
-        legend: { display: false },
-        title: {
-            display: true,
-            text: 'Predicted world population (millions) in 2050'
-        }
-        }
-    });
+            }
+        });
+    }
+
+    fetchJSONFile("data.json", createChart)
+
 </script>
